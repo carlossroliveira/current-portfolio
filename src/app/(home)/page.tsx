@@ -1,7 +1,9 @@
 export default function HomePage() {
   return (
-    <main>
-      <div>Hello world!</div>
-    </main>
+    <div>Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Veritatis explicabo sit soluta officiis ad rerum, ea neque
+      eaque quaerat, quasi unde expedita, voluptatem perspiciatis officia velit sapiente
+      corrupti tempore quod.
+    </div>
   )
 }
