@@ -1,9 +1,11 @@
+import Banner from '../sections/banner'
+import Header from '../sections/header'
+
 export default function HomePage() {
   return (
-    <div>Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Veritatis explicabo sit soluta officiis ad rerum, ea neque
-      eaque quaerat, quasi unde expedita, voluptatem perspiciatis officia velit sapiente
-      corrupti tempore quod.
+    <div className="bg-gray-700 relative h-screen">
+      <Header />
+      <Banner />
     </div>
   )
 }
