@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Mulish, Poetsen_One } from 'next/font/google'
+import { Space_Grotesk } from 'next/font/google'
 import type { ReactNode } from 'react'
 
 export const metadata: Metadata = {
@@ -8,16 +8,10 @@ export const metadata: Metadata = {
   description: 'Este é o meu novo portfólio em Next.js',
 }
 
-const mulish = Mulish({
-  weight: ['400', '600'],
+const space_grotesk = Space_Grotesk({
+  weight: ['400', '700'],
   subsets: ['latin'],
-  variable: '--font-mulish',
-})
-
-const poetsen = Poetsen_One({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-poetsen',
+  variable: '--font-Space_Grotesk',
 })
 
 export default function RootLayout({
@@ -26,8 +20,8 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${mulish.variable} ${poetsen.variable}`}>
-      <body className="bg-gray-900 antialiased text-gray-100 max-w-[1440px] mx-auto">
+    <html lang="pt-BR" className={`${space_grotesk.variable}`}>
+      <body className="bg-gray-900 antialiased text-gray-100 max-w-[1240px] mx-auto px-14">
         {children}
       </body>
     </html>
