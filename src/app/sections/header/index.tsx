@@ -4,6 +4,27 @@ import { IoLanguage } from 'react-icons/io5'
 import { SiStorybook } from 'react-icons/si'
 
 export default function Header() {
+  const socialLinks = [
+    {
+      href: 'https://www.linkedin.com/in/carlos-oliveira-ab93941a1/',
+      icon: <FaLinkedin size={26} />,
+      isExternal: true,
+    },
+    {
+      href: 'https://github.com/carlossroliveira',
+      icon: <FaGithub size={26} />,
+      isExternal: true,
+    },
+    {
+      href: '/storybook',
+      icon: <SiStorybook size={26} />,
+      isExternal: false,
+    },
+  ]
+
+  const iconClass =
+    'cursor-pointer transition-transform duration-300 hover:text-blue hover:scale-110'
+
   return (
     <div className="flex justify-between items-center max-w-[880px] mx-auto pt-8">
       <div
@@ -15,30 +36,18 @@ export default function Header() {
         </p>
 
         <div className="flex gap-6">
-          <Link
-            target="_blank"
-            href="https://www.linkedin.com/in/carlos-oliveira-ab93941a1/"
-            className="cursor-pointer transition-transform duration-300 hover:text-blue hover:scale-110"
-          >
-            <FaLinkedin size={26} />
-          </Link>
+          {socialLinks.map(({ href, icon, isExternal }) => (
+            <Link
+              key={href}
+              href={href}
+              className={iconClass}
+              target={isExternal ? '_blank' : undefined}
+            >
+              {icon}
+            </Link>
+          ))}
 
-          <Link
-            target="_blank"
-            href="https://github.com/carlossroliveira"
-            className="cursor-pointer transition-transform duration-300 hover:text-blue hover:scale-110"
-          >
-            <FaGithub size={26} />
-          </Link>
-
-          <Link
-            href="/storybook"
-            className="cursor-pointer transition-transform duration-300 hover:text-blue hover:scale-110"
-          >
-            <SiStorybook size={26} />
-          </Link>
-
-          <span className="cursor-pointer transition-transform duration-300 hover:text-blue hover:scale-110">
+          <span className={iconClass}>
             <IoLanguage size={26} />
           </span>
         </div>
