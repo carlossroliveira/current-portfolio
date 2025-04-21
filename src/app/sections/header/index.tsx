@@ -6,12 +6,15 @@ import { SiStorybook } from 'react-icons/si'
 export default function Header() {
   return (
     <div className="flex justify-between items-center max-w-[880px] mx-auto pt-8">
-      <div className="flex gap-44">
+      <div
+        className="flex gap-48 max-[990px]:flex-col max-[990px]:gap-4 max-[990px]:ml-[155px]
+      max-[915px]:flex max-[915px]:flex-col max-[915px]:gap-4 max-[915px]:mx-auto max-[915px]:text-center"
+      >
         <p className="text-2xl font-Space_Grotesk font-semibold">
           CarlosOliveira
         </p>
 
-        <div className="flex gap-6 z-10">
+        <div className="flex gap-6">
           <Link
             target="_blank"
             href="https://www.linkedin.com/in/carlos-oliveira-ab93941a1/"
