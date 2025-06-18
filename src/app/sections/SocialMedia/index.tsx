@@ -1,23 +1,21 @@
+import { BookOpen, Github, Languages, Linkedin } from 'lucide-react'
 import Link from 'next/link'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { IoLanguage } from 'react-icons/io5'
-import { SiStorybook } from 'react-icons/si'
 
 export default function SocialMedia() {
   const socialLinks = [
     {
       href: 'https://www.linkedin.com/in/carlos-oliveira-ab93941a1/',
-      icon: <FaLinkedin size={26} />,
+      icon: <Linkedin className="w-[26px] h-[26px]" />,
       isExternal: true,
     },
     {
       href: 'https://github.com/carlossroliveira',
-      icon: <FaGithub size={26} />,
+      icon: <Github className="w-[26px] h-[26px]" />,
       isExternal: true,
     },
     {
       href: '/storybook',
-      icon: <SiStorybook size={26} />,
+      icon: <BookOpen className="w-[26px] h-[26px]" />,
       isExternal: false,
     },
   ]
@@ -41,7 +39,7 @@ export default function SocialMedia() {
         ))}
 
         <span className={iconClass}>
-          <IoLanguage size={26} />
+          <Languages className="w-[26px] h-[26px]" />
         </span>
       </div>
     </div>
