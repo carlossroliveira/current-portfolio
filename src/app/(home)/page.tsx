@@ -1,4 +1,5 @@
 import Divider from '../components/Divider'
+import Projects from '../sections/Projects'
 import Skills from '../sections/Skills'
 import WelcomeSection from '../sections/WelcomeSection'
 
@@ -11,7 +12,9 @@ export default function HomePage() {
 
       <Skills />
 
-      <Divider className="mt-10" />
+      <Divider className="mt-10 mb-10" />
+
+      <Projects />
     </div>
   )
 }
