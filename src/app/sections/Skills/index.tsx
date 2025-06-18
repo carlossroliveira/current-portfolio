@@ -3,7 +3,7 @@ import { mainSkills, otherSkills } from './utils'
 
 export default function Skills() {
   return (
-    <section className="pt-12 px-4 max-w-6xl mx-auto">
+    <section className="pt-12 max-w-6xl mx-auto">
       <Title
         align="center"
         title="Skills"
