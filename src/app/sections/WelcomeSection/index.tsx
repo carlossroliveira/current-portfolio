@@ -1,6 +1,6 @@
 import Button from '@/app/components/Button'
 import Image from 'next/image'
-import Im from '../../../assets/im.jpeg'
+import Im from '../../../../public/assets/im.jpeg'
 import SocialMedia from '../SocialMedia'
 
 export default function WelcomeSection() {

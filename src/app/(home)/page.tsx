@@ -15,6 +15,10 @@ export default function HomePage() {
       <Divider className="mt-10 mb-10" />
 
       <Projects />
+
+      <Divider className="mt-10 mb-10" />
+
+      <h1>Nova Sessão</h1>
     </div>
   )
 }
