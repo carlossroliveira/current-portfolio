@@ -25,6 +25,33 @@ export const projects = [
   },
   {
     id: '02',
+    title: 'WEATHER FORECAST',
+    description:
+      'Um painel interativo que exibe o clima atual e a previsão futura de diversas cidades, incluindo busca e tema escuro.',
+    image: '/assets/forecast.png',
+    technologies: [
+      'HTML',
+      'styled-components',
+      'React',
+      'TypeScript',
+      'Axios',
+      'react-slick',
+      'react-switch',
+      'react-router-dom',
+      'jest',
+      'react-testing-library',
+    ],
+    liveUrl:
+      'https://previsao-do-tempo-ldp15p8ex-carlossroliveiras-projects.vercel.app/',
+    githubUrl:
+      'https://github.com/carlossroliveira/Previsao-do-tempo/tree/main',
+    year: '2022',
+    status: 'Concluído',
+    fileSize: '223 MB',
+    commits: '35',
+  },
+  {
+    id: '03',
     title: 'DOLLAR CONVERTER',
     description:
       'Converter valores em dólar para real, considerando cotação atual, IOF, tipo de pagamento (dinheiro ou cartão) e impostos estaduais dos EUA.',
@@ -44,7 +71,7 @@ export const projects = [
     commits: '18',
   },
   {
-    id: '03',
+    id: '04',
     title: 'ZIP CODE',
     description:
       'Exibe os dados de endereço a partir de um CEP digitado, com integração à API dos Correios. Interface limpa e responsiva.',
