@@ -14,7 +14,9 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
           fill
           alt={project.title}
           src={project.image}
-          className="w-full h-full object-cover opacity-90"
+          className="w-full h-full opacity-90"
+          objectFit="cover"
+          objectPosition="top"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
 
