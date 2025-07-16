@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${space_grotesk.variable}`}>
-      <body className="bg-gray-900 antialiased text-gray-100 max-w-[1240px] mx-auto px-14">
+      <body className="bg-gray-900 antialiased text-gray-100 max-w-[1240px] mx-auto sm:px-14">
         {children}
       </body>
     </html>
