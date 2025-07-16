@@ -7,6 +7,13 @@ interface ProjectDetailsProps {
 }
 
 export default function ProjectDetails({ project }: ProjectDetailsProps) {
+  const colorCycle = [
+    'bg-blue/20 text-blue border border-blue/30',
+    'bg-emerald/20 text-emerald border border-emerald/30',
+    'bg-amber/20 text-amber border border-amber/30',
+    'bg-rose/20 text-rose border border-rose/30',
+  ]
+
   return (
     <div className="bg-gray-800/30 rounded-xl border border-gray-700/50 overflow-hidden">
       <div className="relative h-48 bg-gradient-to-br from-gray-700 to-gray-800">
@@ -70,17 +77,12 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
 
         <div className="space-y-2">
           <h4 className="text-sm font-medium text-gray-400">Tecnologias</h4>
-
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, index) => (
               <span
                 key={tech}
-                className={`px-3 py-1 text-xs font-medium rounded-lg ${
-                  index === 0
-                    ? 'bg-blue/20 text-blue border border-blue/30'
-                    : index === 1
-                      ? 'bg-purple/20 text-purple border border-purple/30'
-                      : 'bg-gray-700/50 text-gray-300 border border-gray-600/50'
+                className={`rounded-lg px-3 py-1 text-xs font-medium ${
+                  colorCycle[index % colorCycle.length]
                 }`}
               >
                 {tech}
