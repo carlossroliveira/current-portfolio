@@ -1,4 +1,4 @@
-import { BookOpen, Github, Languages, Linkedin } from 'lucide-react'
+import { Github, Languages, Linkedin } from 'lucide-react'
 import Link from 'next/link'
 
 export default function SocialMedia() {
@@ -12,11 +12,6 @@ export default function SocialMedia() {
       href: 'https://github.com/carlossroliveira',
       icon: <Github className="w-[26px] h-[26px]" />,
       isExternal: true,
-    },
-    {
-      href: '/storybook',
-      icon: <BookOpen className="w-[26px] h-[26px]" />,
-      isExternal: false,
     },
   ]
 
