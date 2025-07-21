@@ -17,7 +17,7 @@ export default function HomePage() {
 
       <Projects />
 
-      <Divider className="mt-10 mb-10" />
+      <Divider className="mt-10" />
 
       <Footer />
     </div>
