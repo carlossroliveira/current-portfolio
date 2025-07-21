@@ -9,7 +9,6 @@ import { projects } from './projects-data'
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<string>('')
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 
   const selectedProjectData = projects.find(p => p.id === selectedProject)
 
@@ -25,14 +24,15 @@ export default function Projects() {
       <Title
         align="center"
         title="Projects"
-        subtitle="Alguns dos meus projetos mais recentes, desenvolvidos com as tecnologias mais modernas do mercado."
+        subtitle="Alguns dos meus projetos mais recentes, desenvolvidos com as tecnologias 
+        mais modernas do mercado."
       />
 
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="lg:w-1/2 space-y-1">
           <div
-            className="flex items-center gap-4 px-4 py-3 text-xs font-medium text-gray-300 
-          uppercase tracking-wider border-b border-gray-400 mb-4"
+            className="hidden sm:flex items-center gap-4 px-4 py-3 text-xs font-medium text-gray-300 
+    uppercase tracking-wider border-b border-gray-400 mb-4"
           >
             <div className="w-8" />
             <div className="flex-1">Nome</div>
@@ -44,16 +44,11 @@ export default function Projects() {
           {projects.map(project => (
             <div
               key={project.id}
-              className={`group flex items-center gap-4 px-4 py-5 mb-2 rounded-lg cursor-pointer 
-                transition-all duration-300 ${
-                  selectedProject === project.id
-                    ? 'bg-blue/10 border-l-2 border-blue'
-                    : hoveredProject === project.id
-                      ? 'bg-gray-800/50'
-                      : 'hover:bg-gray-800/30'
-                }`}
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
+              className={`group cursor-pointer mb-2 rounded-lg transition-all duration-300 ${
+                selectedProject === project.id
+                  ? 'bg-blue/10'
+                  : 'hover:bg-gray-800/30'
+              }`}
               onClick={() =>
                 setSelectedProject(
                   selectedProject === project.id ? '' : project.id
@@ -67,62 +62,108 @@ export default function Projects() {
                 }
               }}
             >
-              <div className="w-8 flex justify-center">
-                <Folder size={16} className="text-blue" />
-              </div>
+              <div className="sm:hidden p-4 flex flex-col gap-3">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <Folder size={20} className="text-blue flex-shrink-0" />
 
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
-                  <span className="font-Space_Grotesk text-sm text-gray-400">
-                    {project.id}
-                  </span>
+                    <span className="font-medium text-base text-gray-200">
+                      {project.title}
+                    </span>
+                  </div>
 
-                  <span className="font-medium text-gray-200 truncate">
-                    {project.title}
-                  </span>
+                  <ChevronRight
+                    size={20}
+                    className={`text-gray-300 transition-transform duration-200 ${
+                      selectedProject === project.id ? 'rotate-90' : ''
+                    }`}
+                  />
                 </div>
 
-                <div className="flex items-center gap-3 mt-1 text-xs text-gray-300">
-                  <span>{project.fileSize}</span>
-                  <span>•</span>
-                  <span>{project.commits} commits</span>
-                  <span>•</span>
+                <div
+                  className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm 
+                text-gray-300 pt-3 border-t border-gray-700"
+                >
+                  <span className="font-medium">Ano: {project.year}</span>
 
-                  <div className="flex items-center gap-1">
-                    <Code2 size={10} />
+                  <div className="flex items-center gap-1.5 text-blue">
+                    <CheckCircle2 size={14} />
+                    <span className="font-medium">OK</span>
+                  </div>
+
+                  <span className="col-span-2 text-gray-400">
+                    {project.commits} commits
+                  </span>
+
+                  <div className="flex items-center gap-1.5 col-span-2 text-gray-400">
+                    <Code2 size={14} />
                     <span>{project.technologies.length} techs</span>
                   </div>
                 </div>
               </div>
 
-              <div className="w-20 flex justify-center">
-                <div className="flex items-center gap-1 px-2 py-1 bg-blue/20 text-blue text-xs rounded-full">
-                  <CheckCircle2 size={16} />
-                  <span className="hidden sm:inline">OK</span>
+              <div className="hidden sm:flex items-center gap-4 px-4 py-5">
+                <div className="w-8 flex justify-center">
+                  <Folder size={16} className="text-blue" />
                 </div>
-              </div>
 
-              <div className="w-16 text-center text-sm text-gray-400 font-Space_Grotesk">
-                {project.year}
-              </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="font-Space_Grotesk text-sm text-gray-400">
+                      {project.id}
+                    </span>
 
-              <div className="w-8 flex justify-center">
-                <ChevronRight
-                  size={16}
-                  className={`text-gray-300 transition-transform duration-200 ${
-                    selectedProject === project.id ? 'rotate-90' : ''
-                  }`}
-                />
+                    <span className="font-medium text-gray-200 truncate">
+                      {project.title}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-3 mt-1 text-xs text-gray-300">
+                    <span>{project.fileSize}</span>
+                    <span>•</span>
+                    <span>{project.commits} commits</span>
+                    <span>•</span>
+
+                    <div className="flex items-center gap-1">
+                      <Code2 size={10} />
+                      <span>{project.technologies.length} techs</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="w-20 flex justify-center">
+                  <div
+                    className="flex items-center gap-1 px-2 py-1 bg-blue/20 
+                  text-blue text-xs rounded-full"
+                  >
+                    <CheckCircle2 size={16} />
+                    <span className="hidden sm:inline">OK</span>
+                  </div>
+                </div>
+
+                <div className="w-16 text-center text-sm text-gray-400 font-Space_Grotesk">
+                  {project.year}
+                </div>
+
+                <div className="w-8 flex justify-center">
+                  <ChevronRight
+                    size={16}
+                    className={`text-gray-300 transition-transform duration-200 ${selectedProject === project.id ? 'rotate-90' : ''}`}
+                  />
+                </div>
               </div>
             </div>
           ))}
 
-          <div className="mt-6 px-4 py-3 bg-gray-600 rounded-lg">
-            <div className="flex items-center justify-between text-xs text-gray-300">
+          <div className="mt-6 rounded-lg bg-gray-600 px-4 py-3">
+            <div
+              className="flex flex-col items-center gap-1 text-xs text-gray-300 
+            sm:flex-row sm:justify-between"
+            >
               <span>{projects.length} projetos</span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span>{totalLines.toLocaleString()} Commits total</span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span>Última atualização: {currentYear}</span>
             </div>
           </div>
