@@ -1,4 +1,5 @@
 import Divider from '../components/Divider'
+import Footer from '../sections/Footer'
 import Projects from '../sections/Projects'
 import Skills from '../sections/Skills'
 import WelcomeSection from '../sections/WelcomeSection'
@@ -18,7 +19,7 @@ export default function HomePage() {
 
       <Divider className="mt-10 mb-10" />
 
-      <h1>Nova Sessão</h1>
+      <Footer />
     </div>
   )
 }
