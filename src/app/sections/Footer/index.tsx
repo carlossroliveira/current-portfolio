@@ -15,11 +15,15 @@ export default function Footer() {
         <div className="hidden lg:flex flex-col items-center justify-between gap-8">
           <div className="flex items-center justify-between w-full mb-8">
             <CopyrightInfo currentYear={currentYear} />
+
             <MadeWithLove />
+
             <ScrollToTopButton />
           </div>
+
           <div className="flex items-center justify-between w-full pt-8">
             <OpenSourceInfo />
+
             <VersionStatus />
           </div>
         </div>
@@ -30,8 +34,15 @@ export default function Footer() {
           </div>
 
           <div className="relative flex items-center justify-center w-full">
-            <div className="absolute inset-0 bg-gradient-to-r from-danger/10 to-rose/10 rounded-full blur-lg opacity-50" />
-            <div className="relative z-10 inline-flex items-center gap-2 text-gray-300 bg-gray-800/50 px-6 py-3 rounded-full backdrop-blur-sm border border-gray-700/50">
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-danger/10 to-rose/10 rounded-full 
+            blur-lg opacity-50"
+            />
+
+            <div
+              className="relative z-10 inline-flex items-center gap-2 text-gray-300 bg-gray-800/50 
+            px-6 py-3 rounded-full backdrop-blur-sm border border-gray-700/50"
+            >
               <MadeWithLove />
             </div>
           </div>
@@ -43,6 +54,7 @@ export default function Footer() {
 
             <div className="flex flex-col items-center sm:items-end text-center sm:text-right space-y-4">
               <VersionStatus />
+
               <ScrollToTopButton />
             </div>
           </div>
