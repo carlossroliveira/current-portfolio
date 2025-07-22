@@ -1,4 +1,8 @@
-import type { SectionTitleProps } from './types'
+export type SectionTitleProps = {
+  title: string
+  subtitle?: string
+  align?: 'left' | 'center' | 'right'
+}
 
 export default function SectionTitle({
   title,
@@ -30,11 +34,11 @@ export default function SectionTitle({
     <div className={`mb-12 ${alignmentClasses[align]}`}>
       <h2 className="relative inline-block text-4xl md:text-6xl font-bold">
         <span className="text-blue relative z-10">{firstLetter}</span>
-        <span className="text-[#dae4f2]">{restOfTitle}</span>
+        <span className="text-gray-100">{restOfTitle}</span>
 
         <span
-          className="absolute -top-2 -left-2 w-12 h-12 bg-blue/10 rounded-full blur-md z-0"
           aria-hidden="true"
+          className="absolute -top-2 -left-2 w-12 h-12 bg-blue/10 rounded-full blur-md z-0"
         />
       </h2>
 
