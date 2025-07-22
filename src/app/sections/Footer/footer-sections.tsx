@@ -8,7 +8,7 @@ export function CopyrightInfo({ currentYear }: CopyrightInfoProps) {
   return (
     <div className="text-center lg:text-left">
       <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-300 mb-2">
-        <span className="text-xl">©</span>
+        <span className="text-xl">&copy;</span>
 
         <span className="font-medium text-lg lg:text-base">
           {currentYear} Carlos Oliveira
