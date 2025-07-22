@@ -4,7 +4,7 @@ import { ArrowUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export const ScrollToTopButton = () => {
-  const [showScrollTop, setShowScrollTop] = useState(false)
+  const [showScrollTop, setShowScrollTop] = useState<boolean>(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +26,7 @@ export const ScrollToTopButton = () => {
     <button
       type="button"
       onClick={scrollToTop}
-      className={`group relative p-3 bg-blue hover:bg-blue/80 rounded-full border 
+      className={`group relative p-3 bg-blue hover:bg-blue/80 hover:cursor-pointer rounded-full border 
         border-blue/50 transition-all duration-300 ${
           showScrollTop
             ? 'opacity-100 translate-y-0'
