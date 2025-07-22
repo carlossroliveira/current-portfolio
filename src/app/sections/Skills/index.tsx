@@ -54,9 +54,6 @@ export default function Skills() {
       </div>
 
       <div className="text-center">
-        <h3 className="text-gray-300 text-lg font-medium mb-6">
-          Também trabalho com
-        </h3>
         <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
           {otherSkills.map((skill, index) => (
             <span
