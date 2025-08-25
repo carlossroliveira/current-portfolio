@@ -1,9 +1,14 @@
+'use client'
+
 import Button from '@/app/components/Button'
+import { useScrollTo } from '@/app/hook/useScrollTo'
 import Image from 'next/image'
 import Im from '../../../../public/assets/im.jpeg'
 import SocialMedia from '../SocialMedia'
 
 export default function WelcomeSection() {
+  const { scrollTo } = useScrollTo()
+
   const image = Im
 
   return (
@@ -38,7 +43,9 @@ export default function WelcomeSection() {
           </p>
 
           <div>
-            <Button>contact me</Button>
+            <Button type="button" onClick={() => scrollTo('contact')}>
+              contact me
+            </Button>
           </div>
         </div>
       </div>
