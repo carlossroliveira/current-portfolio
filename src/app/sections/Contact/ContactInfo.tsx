@@ -25,7 +25,7 @@ export default function ContactInfo() {
   return (
     <div className="lg:col-span-5 space-y-8 flex">
       <div
-        className="relative p-8 rounded-2xl bg-gradient-to-br from-gray-bg-gray-900/80 to-gray-900/80 
+        className="relative max-[425px]:w-1.5 max-[374px]:p-0 p-4 rounded-2xl bg-gradient-to-br from-gray-bg-gray-900/80 to-gray-900/80 
       backdrop-blur-xl border border-gray-800/50 flex-1 flex flex-col"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-blue/5 to-purple/5 rounded-2xl animate-pulse" />
@@ -67,7 +67,7 @@ export default function ContactInfo() {
                     carlos.sroliveira@hotmail.com
                   </p>
                 </div>
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="max-[374px]:hidden opacity-0 group-hover:opacity-100 transition-opacity">
                   {copiedEmail ? (
                     <Check className="w-5 h-5 text-green-400" />
                   ) : (
