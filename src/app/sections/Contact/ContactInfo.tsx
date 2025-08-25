@@ -54,7 +54,7 @@ export default function ContactInfo() {
                hover:border-blue/50 transition-all duration-300 hover:bg-blue/5"
               >
                 <div
-                  className="w-10 h-10 bg-gradient-to-r from-blue to-purple rounded-lg flex items-center
+                  className="w-10 h-10 bg-gradient-to-r from-blue to-blue rounded-lg flex items-center
                  justify-center group-hover:scale-110 transition-transform"
                 >
                   <Mail className="w-7 h-7 text-white" />
@@ -64,7 +64,7 @@ export default function ContactInfo() {
                     Email
                   </p>
                   <p className="text-white font-medium hover:text-blue transition-colors">
-                    carlos.oliveira@email.com
+                    carlos.sroliveira@hotmail.com
                   </p>
                 </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity">
@@ -87,7 +87,7 @@ export default function ContactInfo() {
                hover:border-purple/50 transition-all duration-300 hover:bg-purple/5"
               >
                 <div
-                  className="w-10 h-10 bg-gradient-to-r from-purple to-blue rounded-lg flex items-center
+                  className="w-10 h-10 bg-gradient-to-r from-purple to-purple rounded-lg flex items-center
                  justify-center group-hover:scale-110 transition-transform"
                 >
                   <Phone className="w-7 h-7 text-white" />
