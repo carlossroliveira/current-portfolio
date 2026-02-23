@@ -2,8 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import type { ChangeEvent, FocusEvent } from 'react'
+import type { UseFormRegisterReturn } from 'react-hook-form'
 
-const AnimatedTextarea = () => {
+type AnimatedTextareaProps = {
+  registration: UseFormRegisterReturn
+  hasError?: boolean
+}
+
+const AnimatedTextarea = ({ registration, hasError = false }: AnimatedTextareaProps) => {
   const [currentText, setCurrentText] = useState<string>('')
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const [isDeleting, setIsDeleting] = useState<boolean>(false)
@@ -45,11 +51,13 @@ const AnimatedTextarea = () => {
   }, [currentText, currentIndex, isDeleting, isFocused, hasContent])
 
   const handleBlur = (e: FocusEvent<HTMLTextAreaElement>) => {
+    registration.onBlur(e)
     setIsFocused(false)
     setHasContent(e.target.value.length > 0)
   }
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    registration.onChange(e)
     setHasContent(e.target.value.length > 0)
   }
 
@@ -58,13 +66,15 @@ const AnimatedTextarea = () => {
       <textarea
         rows={8}
         id="message"
-        name="message"
+        name={registration.name}
+        ref={registration.ref}
         className="peer w-full bg-gray-900/50 border-2 border-gray-800/50 rounded-xl 
         text-white outline-none focus:outline-none focus:ring-0 focus:border-gray-800/50 
         focus:shadow-none transition-all duration-300 px-4 pt-4 resize-none min-h-[200px]"
         onFocus={() => setIsFocused(true)}
         onBlur={handleBlur}
         onChange={handleChange}
+        aria-invalid={hasError}
       />
 
       {!isFocused && !hasContent && (
