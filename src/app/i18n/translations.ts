@@ -9,6 +9,10 @@ export const translations = {
       darkLabel: 'Ativar tema escuro',
       lightLabel: 'Ativar tema claro',
     },
+    social: {
+      githubTitle: 'Abrir perfil no GitHub',
+      linkedinTitle: 'Abrir perfil no LinkedIn',
+    },
     welcome: {
       greeting: 'Prazer em conhecer você!',
       introPrefix: 'Eu sou',
@@ -95,6 +99,10 @@ export const translations = {
     theme: {
       darkLabel: 'Enable dark theme',
       lightLabel: 'Enable light theme',
+    },
+    social: {
+      githubTitle: 'Open GitHub profile',
+      linkedinTitle: 'Open LinkedIn profile',
     },
     welcome: {
       greeting: 'Nice to meet you!',
