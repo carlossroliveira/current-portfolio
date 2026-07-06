@@ -1,13 +1,13 @@
 'use client'
 
+import { Button } from '@/app/components/Button'
+import { Title } from '@/app/components/Title'
 import { zodResolver } from '@hookform/resolvers/zod'
-import Button from '@/app/components/Button'
-import Title from '@/app/components/Title'
 import { Mail, Send, User } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import AnimatedTextarea from './AnimatedTextarea'
-import ContactInfo from './ContactInfo'
+import { AnimatedTextarea } from './AnimatedTextarea'
+import { ContactInfo } from './ContactInfo'
 
 const contactSchema = z.object({
   name: z
@@ -23,7 +23,7 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>
 
-export default function Contact() {
+export function Contact() {
   const {
     register,
     handleSubmit,
@@ -38,8 +38,7 @@ export default function Contact() {
     },
   })
 
-  const onSubmit = async (data: ContactFormData) => {
-    console.log('Contact form:', data)
+  const onSubmit = async () => {
     reset()
   }
 

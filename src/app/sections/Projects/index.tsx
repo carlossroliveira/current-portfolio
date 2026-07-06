@@ -1,21 +1,26 @@
 'use client'
 
-import Title from '@/app/components/Title'
-import { FileText } from 'lucide-react'
-import { CheckCircle2, ChevronRight, Code2, Folder } from 'lucide-react'
+import { Title } from '@/app/components/Title'
+import {
+  CheckCircle2,
+  ChevronRight,
+  Code2,
+  FileText,
+  Folder,
+} from 'lucide-react'
 import { useState } from 'react'
-import ProjectDetails from './project-details'
+import { ProjectDetails } from './project-details'
 import { projects } from './projects-data'
 
-export default function Projects() {
+const totalCommits = projects.reduce((acc, project) => {
+  const commits = Number.parseInt(project.commits.replace(',', ''), 10)
+  return acc + (Number.isNaN(commits) ? 0 : commits)
+}, 0)
+
+export function Projects() {
   const [selectedProject, setSelectedProject] = useState<string>('')
 
   const selectedProjectData = projects.find(p => p.id === selectedProject)
-
-  const totalLines = projects.reduce((acc, project) => {
-    const lines = Number.parseInt(project.commits.replace(',', ''), 10)
-    return acc + (Number.isNaN(lines) ? 0 : lines)
-  }, 0)
 
   const currentYear = new Date().getFullYear()
 
@@ -162,7 +167,7 @@ export default function Projects() {
             >
               <span>{projects.length} projetos</span>
               <span className="hidden sm:inline">•</span>
-              <span>{totalLines.toLocaleString()} Commits total</span>
+              <span>{totalCommits.toLocaleString()} Commits total</span>
               <span className="hidden sm:inline">•</span>
               <span>Última atualização: {currentYear}</span>
             </div>

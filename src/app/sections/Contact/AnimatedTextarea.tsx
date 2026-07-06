@@ -9,7 +9,10 @@ type AnimatedTextareaProps = {
   hasError?: boolean
 }
 
-const AnimatedTextarea = ({ registration, hasError = false }: AnimatedTextareaProps) => {
+export const AnimatedTextarea = ({
+  registration,
+  hasError = false,
+}: AnimatedTextareaProps) => {
   const [currentText, setCurrentText] = useState<string>('')
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const [isDeleting, setIsDeleting] = useState<boolean>(false)
@@ -86,5 +89,3 @@ const AnimatedTextarea = ({ registration, hasError = false }: AnimatedTextareaPr
     </div>
   )
 }
-
-export default AnimatedTextarea

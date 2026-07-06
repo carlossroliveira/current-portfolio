@@ -1,15 +1,13 @@
 'use client'
 
-import Button from '@/app/components/Button'
+import { Button } from '@/app/components/Button'
 import { useScrollTo } from '@/app/hook/useScrollTo'
 import Image from 'next/image'
 import Im from '../../../../public/assets/im.jpeg'
-import SocialMedia from '../SocialMedia'
+import { SocialMedia } from '../SocialMedia'
 
-export default function WelcomeSection() {
+export function WelcomeSection() {
   const { scrollTo } = useScrollTo()
-
-  const image = Im
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -30,11 +28,10 @@ export default function WelcomeSection() {
 
           <div className="lg:hidden flex justify-center mb-8 h-80">
             <Image
-              src={image}
+              src={Im}
               alt="Minha imagem"
               className="rounded-lg object-cover"
             />
-            x{' '}
           </div>
 
           <p className="text-lg lg:text-xl text-gray-300 mb-12 max-w-lg leading-relaxed mx-auto lg:mx-0">
@@ -51,11 +48,7 @@ export default function WelcomeSection() {
       </div>
 
       <div className="hidden lg:flex mx-auto justify-center items-start">
-        <Image
-          src={image}
-          alt="Minha imagem"
-          className="rounded object-cover"
-        />
+        <Image src={Im} alt="Minha imagem" className="rounded object-cover" />
       </div>
     </div>
   )

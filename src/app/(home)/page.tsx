@@ -1,9 +1,9 @@
-import Divider from '../components/Divider'
-import Contact from '../sections/Contact'
-import Footer from '../sections/Footer'
-import Projects from '../sections/Projects'
-import Skills from '../sections/Skills'
-import WelcomeSection from '../sections/WelcomeSection'
+import { Divider } from '../components/Divider'
+import { Contact } from '../sections/Contact'
+import { Footer } from '../sections/Footer'
+import { Projects } from '../sections/Projects'
+import { Skills } from '../sections/Skills'
+import { WelcomeSection } from '../sections/WelcomeSection'
 
 export default function HomePage() {
   return (

@@ -4,15 +4,15 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode
 }
 
-const Button = ({
+const defaultClasses =
+  'uppercase font-Space_Grotesk cursor-pointer transition-colors duration-300 hover:text-blue'
+
+export const Button = ({
   children,
   type = 'button',
   className,
   ...rest
 }: ButtonProps) => {
-  const defaultClasses =
-    'uppercase font-Space_Grotesk cursor-pointer transition-colors duration-300 hover:text-blue'
-
   const mergedClasses = `${defaultClasses} ${className || ''}`.trim()
 
   return (
@@ -22,5 +22,3 @@ const Button = ({
     </button>
   )
 }
-
-export default Button

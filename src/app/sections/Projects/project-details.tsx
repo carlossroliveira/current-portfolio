@@ -6,14 +6,14 @@ interface ProjectDetailsProps {
   project: Project
 }
 
-export default function ProjectDetails({ project }: ProjectDetailsProps) {
-  const colorCycle = [
-    'bg-blue/20 text-blue border border-blue/30',
-    'bg-emerald/20 text-emerald border border-emerald/30',
-    'bg-amber/20 text-amber border border-amber/30',
-    'bg-rose/20 text-rose border border-rose/30',
-  ]
+const colorCycle = [
+  'bg-blue/20 text-blue border border-blue/30',
+  'bg-emerald/20 text-emerald border border-emerald/30',
+  'bg-amber/20 text-amber border border-amber/30',
+  'bg-rose/20 text-rose border border-rose/30',
+]
 
+export function ProjectDetails({ project }: ProjectDetailsProps) {
   return (
     <div className="bg-gray-800/30 rounded-xl border border-gray-700/50 overflow-hidden">
       <div className="relative h-48 bg-gradient-to-br from-gray-700 to-gray-800">

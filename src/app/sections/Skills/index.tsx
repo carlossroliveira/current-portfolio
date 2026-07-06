@@ -1,7 +1,7 @@
-import Title from '@/app/components/Title'
+import { Title } from '@/app/components/Title'
 import { mainSkills, otherSkills } from './utils'
 
-export default function Skills() {
+export function Skills() {
   return (
     <section className="pt-12 max-w-6xl mx-auto">
       <Title

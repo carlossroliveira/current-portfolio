@@ -7,18 +7,19 @@ export interface DividerProps extends HTMLAttributes<HTMLDivElement> {
   orientation?: 'horizontal' | 'vertical'
 }
 
-const Divider = ({
+const sizeClasses = {
+  horizontal: { '1': 'h-px', '2': 'h-0.5', '4': 'h-1', '8': 'h-2' },
+  vertical: { '1': 'w-px', '2': 'w-0.5', '4': 'w-1', '8': 'w-2' },
+} as const
+
+export const Divider = ({
   color = '#6f7d90',
   size = '1',
   orientation = 'horizontal',
   className,
   ...props
 }: DividerProps) => {
-  const sizeClass =
-    orientation === 'horizontal'
-      ? { '1': 'h-px', '2': 'h-0.5', '4': 'h-1', '8': 'h-2' }[size]
-      : { '1': 'w-px', '2': 'w-0.5', '4': 'w-1', '8': 'w-2' }[size]
-
+  const sizeClass = sizeClasses[orientation][size]
   const dimensionClass = orientation === 'horizontal' ? 'w-full' : 'h-full'
 
   const style = { backgroundColor: color }
@@ -36,5 +37,3 @@ const Divider = ({
     />
   )
 }
-
-export default Divider

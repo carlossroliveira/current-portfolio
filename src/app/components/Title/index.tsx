@@ -4,31 +4,31 @@ export type SectionTitleProps = {
   align?: 'left' | 'center' | 'right'
 }
 
-export default function SectionTitle({
+const alignmentClasses = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right',
+} as const
+
+const flexAlignmentClasses = {
+  left: 'justify-start',
+  center: 'justify-center',
+  right: 'justify-end',
+} as const
+
+const subtitleAlignmentClasses = {
+  left: 'mx-0',
+  center: 'mx-auto',
+  right: 'ml-auto mr-0',
+} as const
+
+export function Title({
   title,
   subtitle,
   align = 'center',
 }: SectionTitleProps) {
   const firstLetter = title.charAt(0)
   const restOfTitle = title.slice(1)
-
-  const alignmentClasses = {
-    left: 'text-left',
-    center: 'text-center',
-    right: 'text-right',
-  }
-
-  const flexAlignmentClasses = {
-    left: 'justify-start',
-    center: 'justify-center',
-    right: 'justify-end',
-  }
-
-  const subtitleAlignmentClasses = {
-    left: 'mx-0',
-    center: 'mx-auto',
-    right: 'ml-auto mr-0',
-  }
 
   return (
     <div className={`mb-12 ${alignmentClasses[align]}`}>

@@ -3,7 +3,7 @@
 import { Check, Code2, Copy, Mail, Phone, Zap } from 'lucide-react'
 import { useState } from 'react'
 
-export default function ContactInfo() {
+export function ContactInfo() {
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false)
   const [copiedPhone, setCopiedPhone] = useState<boolean>(false)
 
