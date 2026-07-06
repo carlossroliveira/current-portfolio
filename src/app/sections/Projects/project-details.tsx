@@ -1,3 +1,6 @@
+'use client'
+
+import { useLanguage } from '@/app/i18n/LanguageProvider'
 import { Calendar, ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
 import type { Project } from './projects-data'
@@ -14,6 +17,8 @@ const colorCycle = [
 ]
 
 export function ProjectDetails({ project }: ProjectDetailsProps) {
+  const { language, t } = useLanguage()
+
   return (
     <div className="bg-gray-800/30 rounded-xl border border-gray-700/50 overflow-hidden">
       <div className="relative h-48 bg-gradient-to-br from-gray-700 to-gray-800">
@@ -40,7 +45,7 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
               rounded-lg transition-colors"
             >
               <ExternalLink size={16} />
-              Ver Projeto
+              {t.projects.viewProject}
             </a>
           )}
 
@@ -50,6 +55,7 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
               href={project.githubUrl}
               rel="noopener noreferrer"
               className="p-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+              aria-label={t.projects.viewCode}
             >
               <Github size={18} />
             </a>
@@ -66,17 +72,19 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
               <Calendar size={14} />
               <span>{project.year}</span>
               <span>•</span>
-              <span>{project.status}</span>
+              <span>{project.status[language]}</span>
             </div>
           </div>
         </div>
 
         <p className="text-gray-300 text-sm leading-relaxed">
-          {project.description}
+          {project.description[language]}
         </p>
 
         <div className="space-y-2">
-          <h4 className="text-sm font-medium text-gray-400">Tecnologias</h4>
+          <h4 className="text-sm font-medium text-gray-400">
+            {t.projects.technologies}
+          </h4>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, index) => (
               <span
@@ -100,7 +108,7 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
               className="flex items-center gap-2 text-blue hover:text-blue/80 text-sm font-medium transition-colors"
             >
               <ExternalLink size={14} />
-              Ver projeto ao vivo
+              {t.projects.liveProject}
             </a>
           )}
 
@@ -113,7 +121,7 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
               font-medium transition-colors"
             >
               <Github size={14} />
-              Ver código
+              {t.projects.viewCode}
             </a>
           )}
         </div>

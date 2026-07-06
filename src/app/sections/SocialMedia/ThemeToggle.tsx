@@ -1,5 +1,6 @@
 'use client'
 
+import { useLanguage } from '@/app/i18n/LanguageProvider'
 import { Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -12,6 +13,7 @@ const applyTheme = (theme: Theme) => {
 }
 
 export function ThemeToggle() {
+  const { t } = useLanguage()
   const [theme, setTheme] = useState<Theme>('dark')
 
   useEffect(() => {
@@ -42,8 +44,8 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       className="cursor-pointer transition-transform duration-300 hover:text-blue hover:scale-110"
-      aria-label={isLight ? 'Ativar tema escuro' : 'Ativar tema claro'}
-      title={isLight ? 'Ativar tema escuro' : 'Ativar tema claro'}
+      aria-label={isLight ? t.theme.darkLabel : t.theme.lightLabel}
+      title={isLight ? t.theme.darkLabel : t.theme.lightLabel}
     >
       {isLight ? (
         <Moon className="w-[26px] h-[26px]" />

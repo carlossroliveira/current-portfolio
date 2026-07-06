@@ -1,5 +1,6 @@
-import { Github, Languages, Linkedin } from 'lucide-react'
+import { Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
+import { LanguageToggle } from './LanguageToggle'
 import { ThemeToggle } from './ThemeToggle'
 
 const socialLinks = [
@@ -34,10 +35,7 @@ export function SocialMedia() {
           </Link>
         ))}
 
-        <span className={iconClass}>
-          <Languages className="w-[26px] h-[26px]" />
-        </span>
-
+        <LanguageToggle />
         <ThemeToggle />
       </div>
     </div>

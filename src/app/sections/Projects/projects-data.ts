@@ -2,8 +2,10 @@ export const projects = [
   {
     id: '01',
     title: 'CRUD',
-    description:
-      'CRUD (Create, Read, Update, and Delete) são as quatro operações básicas (criação, consulta, atualização e destruição de dados).',
+    description: {
+      pt: 'CRUD (Create, Read, Update, and Delete) são as quatro operações básicas: criação, consulta, atualização e exclusão de dados.',
+      en: 'CRUD (Create, Read, Update, and Delete) represents the four basic operations: creating, reading, updating, and deleting data.',
+    },
     image: '/assets/crud.png',
     technologies: [
       'HTML',
@@ -19,15 +21,23 @@ export const projects = [
     liveUrl: 'https://crud-redux-snowy.vercel.app/',
     githubUrl: 'https://github.com/carlossroliveira/Crud-Redux',
     year: '2023',
-    status: 'Concluído',
-    fileSize: '3,13 MB',
+    status: {
+      pt: 'Concluído',
+      en: 'Completed',
+    },
+    fileSize: {
+      pt: '3,13 MB',
+      en: '3.13 MB',
+    },
     commits: '41',
   },
   {
     id: '02',
     title: 'WEATHER FORECAST',
-    description:
-      'Um painel interativo que exibe o clima atual e a previsão futura de diversas cidades, incluindo busca e tema escuro.',
+    description: {
+      pt: 'Um painel interativo que exibe o clima atual e a previsão futura de diversas cidades, incluindo busca e tema escuro.',
+      en: 'An interactive dashboard that displays current weather and future forecasts for multiple cities, including search and dark theme.',
+    },
     image: '/assets/forecast.png',
     technologies: [
       'HTML',
@@ -46,15 +56,23 @@ export const projects = [
     githubUrl:
       'https://github.com/carlossroliveira/Previsao-do-tempo/tree/main',
     year: '2022',
-    status: 'Concluído',
-    fileSize: '223 MB',
+    status: {
+      pt: 'Concluído',
+      en: 'Completed',
+    },
+    fileSize: {
+      pt: '223 MB',
+      en: '223 MB',
+    },
     commits: '35',
   },
   {
     id: '03',
     title: 'DOLLAR CONVERTER',
-    description:
-      'Converter valores em dólar para real, considerando cotação atual, IOF, tipo de pagamento (dinheiro ou cartão) e impostos estaduais dos EUA.',
+    description: {
+      pt: 'Converte valores em dólar para real, considerando cotação atual, IOF, tipo de pagamento e impostos estaduais dos EUA.',
+      en: 'Converts dollar amounts to Brazilian reais, considering the current exchange rate, IOF, payment type, and US state taxes.',
+    },
     image: '/assets/dollar.png',
     technologies: [
       'HTML',
@@ -66,15 +84,23 @@ export const projects = [
     liveUrl: 'https://conversor-dolar.vercel.app/',
     githubUrl: 'https://github.com/carlossroliveira/Conversor-dolar',
     year: '2022',
-    status: 'Concluído',
-    fileSize: '1,14 MB',
+    status: {
+      pt: 'Concluído',
+      en: 'Completed',
+    },
+    fileSize: {
+      pt: '1,14 MB',
+      en: '1.14 MB',
+    },
     commits: '18',
   },
   {
     id: '04',
     title: 'ZIP CODE',
-    description:
-      'Exibe os dados de endereço a partir de um CEP digitado, com integração à API dos Correios. Interface limpa e responsiva.',
+    description: {
+      pt: 'Exibe dados de endereço a partir de um CEP digitado, com integração à API dos Correios. Interface limpa e responsiva.',
+      en: 'Displays address data from a typed ZIP code, integrated with the Correios API. Clean and responsive interface.',
+    },
     image: '/assets/zip-code.png',
     technologies: [
       'HTML',
@@ -86,8 +112,14 @@ export const projects = [
     liveUrl: 'https://zip-code-ten.vercel.app/',
     githubUrl: 'https://github.com/carlossroliveira/ZIP-Code',
     year: '2021',
-    status: 'Concluído',
-    fileSize: '269 KB',
+    status: {
+      pt: 'Concluído',
+      en: 'Completed',
+    },
+    fileSize: {
+      pt: '269 KB',
+      en: '269 KB',
+    },
     commits: '12',
   },
 ]

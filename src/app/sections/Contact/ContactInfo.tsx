@@ -1,9 +1,15 @@
 'use client'
 
+import { useLanguage } from '@/app/i18n/LanguageProvider'
 import { Check, Code2, Copy, Mail, Phone, Zap } from 'lucide-react'
 import { useState } from 'react'
 
+const contactEmail = 'carlos.sroliveira@hotmail.com'
+const contactPhone = '+5571992567831'
+const formattedPhone = '+55 (71) 9 9256-7831'
+
 export function ContactInfo() {
+  const { t } = useLanguage()
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false)
   const [copiedPhone, setCopiedPhone] = useState<boolean>(false)
 
@@ -39,7 +45,7 @@ export function ContactInfo() {
               <Code2 className="w-6 h-6 text-white" />
             </div>
             <h2 className="text-2xl font-bold text-gray-100">
-              Entre em Contato
+              {t.contact.infoTitle}
             </h2>
           </div>
 
@@ -47,9 +53,7 @@ export function ContactInfo() {
             <button
               type="button"
               className="group cursor-pointer w-full text-left"
-              onClick={() =>
-                copyToClipboard('carlos.oliveira@email.com', 'email')
-              }
+              onClick={() => copyToClipboard(contactEmail, 'email')}
             >
               <div
                 className="flex items-center gap-4 p-4 rounded-xl bg-gray-900/50 border border-gray-800/50
@@ -66,7 +70,7 @@ export function ContactInfo() {
                     Email
                   </p>
                   <p className="text-gray-100 font-medium hover:text-blue transition-colors">
-                    carlos.sroliveira@hotmail.com
+                    {contactEmail}
                   </p>
                 </div>
                 <div className="max-[374px]:hidden opacity-0 group-hover:opacity-100 transition-opacity">
@@ -82,7 +86,7 @@ export function ContactInfo() {
             <button
               type="button"
               className="group cursor-pointer w-full text-left"
-              onClick={() => copyToClipboard('+5571992567831', 'phone')}
+              onClick={() => copyToClipboard(contactPhone, 'phone')}
             >
               <div
                 className="flex items-center gap-4 p-4 rounded-xl bg-gray-900/50 border border-gray-800/50
@@ -96,10 +100,10 @@ export function ContactInfo() {
                 </div>
                 <div className="flex-1">
                   <p className="text-sm text-gray-400 uppercase tracking-wide">
-                    Celular
+                    {t.contact.phoneLabel}
                   </p>
                   <p className="text-gray-100 font-medium hover:text-purple transition-colors">
-                    +55 (71) 9 9256-7831
+                    {formattedPhone}
                   </p>
                 </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity">
@@ -119,12 +123,16 @@ export function ContactInfo() {
           >
             <div className="flex items-center gap-2 mb-2">
               <Zap className="w-5 h-5 text-blue" />
-              <h3 className="font-bold text-gray-100">Resposta Rápida</h3>
+              <h3 className="font-bold text-gray-100">
+                {t.contact.quickReplyTitle}
+              </h3>
             </div>
             <p className="text-gray-300 text-sm">
-              Vou responder em até{' '}
-              <span className="text-blue font-semibold">48 horas</span> —
-              geralmente antes.
+              {t.contact.quickReplyPrefix}{' '}
+              <span className="text-blue font-semibold">
+                {t.contact.quickReplyTime}
+              </span>{' '}
+              - {t.contact.quickReplySuffix}
             </p>
           </div>
         </div>

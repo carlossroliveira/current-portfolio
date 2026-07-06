@@ -2,10 +2,11 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Space_Grotesk } from 'next/font/google'
 import type { ReactNode } from 'react'
+import { LanguageProvider } from './i18n/LanguageProvider'
 
 export const metadata: Metadata = {
-  title: 'Portfólio',
-  description: 'Este é o meu novo portfólio em Next.js',
+  title: 'Portfólio | Portfolio',
+  description: 'Portfólio bilíngue de Carlos Oliveira em Next.js',
 }
 
 const space_grotesk = Space_Grotesk({
@@ -26,7 +27,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-gray-900 antialiased text-gray-100 max-w-[1240px] mx-auto sm:px-14">
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   )

@@ -1,9 +1,11 @@
 'use client'
 
+import { useLanguage } from '@/app/i18n/LanguageProvider'
 import { ArrowUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export const ScrollToTopButton = () => {
+  const { t } = useLanguage()
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false)
 
   useEffect(() => {
@@ -32,7 +34,7 @@ export const ScrollToTopButton = () => {
             ? 'opacity-100 translate-y-0'
             : 'opacity-50 translate-y-2'
         }`}
-      aria-label="Voltar ao topo"
+      aria-label={t.footer.scrollTop}
     >
       <ArrowUp className="w-5 h-5 text-white group-hover:text-gray-100 transition-colors" />
 

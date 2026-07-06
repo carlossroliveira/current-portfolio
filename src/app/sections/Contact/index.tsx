@@ -2,18 +2,24 @@
 
 import { Button } from '@/app/components/Button'
 import { Title } from '@/app/components/Title'
+import { useLanguage } from '@/app/i18n/LanguageProvider'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Mail, Send, User } from 'lucide-react'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { AnimatedTextarea } from './AnimatedTextarea'
 import { ContactInfo } from './ContactInfo'
-import { type ContactFormData, contactSchema } from './contact-schema'
+import { type ContactFormData, createContactSchema } from './contact-schema'
 
 type SubmitStatus = 'idle' | 'success' | 'error'
 
 export function Contact() {
+  const { language, t } = useLanguage()
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
+  const schema = useMemo(
+    () => createContactSchema(t.contact.validation),
+    [t.contact.validation]
+  )
 
   const {
     register,
@@ -21,7 +27,7 @@ export function Contact() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       name: '',
       email: '',
@@ -56,8 +62,8 @@ export function Contact() {
     <div id="contact">
       <Title
         align="center"
-        title="Contact"
-        subtitle="Estou disponível para transformar suas ideias em realidade."
+        title={t.contact.title}
+        subtitle={t.contact.subtitle}
       />
 
       <div className="grid lg:grid-cols-12 gap-12 items-stretch mb-11">
@@ -99,7 +105,7 @@ export function Contact() {
                         peer-focus:text-xs peer-focus:text-blue"
                     >
                       <User className="w-4 h-4 mr-2" />
-                      Seu Nome
+                      {t.contact.nameLabel}
                     </label>
                     {errors.name?.message && (
                       <p className="mt-2 rounded-md border border-[#ff3b30]/70 bg-[#ff3b30]/15 px-3 py-2 text-sm font-semibold text-[#ff3b30]">
@@ -128,7 +134,7 @@ export function Contact() {
                        peer-focus:text-xs peer-focus:text-purple"
                     >
                       <Mail className="w-4 h-4 mr-2" />
-                      Seu Email
+                      {t.contact.emailLabel}
                     </label>
                     {errors.email?.message && (
                       <p className="mt-2 rounded-md border border-[#ff3b30]/70 bg-[#ff3b30]/15 px-3 py-2 text-sm font-semibold text-[#ff3b30]">
@@ -140,7 +146,9 @@ export function Contact() {
 
                 <div>
                   <AnimatedTextarea
+                    key={language}
                     registration={register('message')}
+                    messages={t.contact.textareaMessages}
                     hasError={Boolean(errors.message)}
                   />
                   {errors.message?.message && (
@@ -153,7 +161,7 @@ export function Contact() {
                 <div className="group flex items-center justify-center gap-3">
                   <Button type="submit" disabled={isSubmitting}>
                     <span>
-                      {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                      {isSubmitting ? t.contact.submitting : t.contact.submit}
                     </span>
                   </Button>
 
@@ -170,8 +178,8 @@ export function Contact() {
                     }`}
                   >
                     {submitStatus === 'success'
-                      ? 'Mensagem enviada com sucesso.'
-                      : 'Não foi possível enviar a mensagem. Tente novamente.'}
+                      ? t.contact.success
+                      : t.contact.error}
                   </p>
                 )}
               </form>

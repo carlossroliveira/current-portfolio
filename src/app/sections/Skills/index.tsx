@@ -1,13 +1,18 @@
+'use client'
+
 import { Title } from '@/app/components/Title'
+import { useLanguage } from '@/app/i18n/LanguageProvider'
 import { mainSkills, otherSkills } from './utils'
 
 export function Skills() {
+  const { t } = useLanguage()
+
   return (
     <section className="pt-12 max-w-6xl mx-auto">
       <Title
         align="center"
-        title="Skills"
-        subtitle="Principais tecnologias que utilizo no desenvolvimento"
+        title={t.skills.title}
+        subtitle={t.skills.subtitle}
       />
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 mb-12">
@@ -69,9 +74,7 @@ export function Skills() {
           ))}
         </div>
 
-        <p className="text-gray-400 text-sm mt-6 italic">
-          E outras tecnologias conforme a necessidade do projeto
-        </p>
+        <p className="text-gray-400 text-sm mt-6 italic">{t.skills.note}</p>
       </div>
     </section>
   )

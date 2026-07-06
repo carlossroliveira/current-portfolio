@@ -1,16 +1,18 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import type { ChangeEvent, FocusEvent } from 'react'
+import { useEffect, useState } from 'react'
 import type { UseFormRegisterReturn } from 'react-hook-form'
 
 type AnimatedTextareaProps = {
   registration: UseFormRegisterReturn
+  messages: readonly string[]
   hasError?: boolean
 }
 
 export const AnimatedTextarea = ({
   registration,
+  messages,
   hasError = false,
 }: AnimatedTextareaProps) => {
   const [currentText, setCurrentText] = useState<string>('')
@@ -18,13 +20,6 @@ export const AnimatedTextarea = ({
   const [isDeleting, setIsDeleting] = useState<boolean>(false)
   const [isFocused, setIsFocused] = useState<boolean>(false)
   const [hasContent, setHasContent] = useState<boolean>(false)
-
-  const messages: string[] = [
-    'Tenho uma ideia incrível para desenvolver...',
-    'Preciso de um site moderno para minha empresa...',
-    'Quero criar uma aplicação web inovadora...',
-    'Gostaria de discutir um projeto interessante...',
-  ]
 
   useEffect(() => {
     if (isFocused || hasContent) return
@@ -38,20 +33,18 @@ export const AnimatedTextarea = ({
           } else {
             setTimeout(() => setIsDeleting(true), 2000)
           }
+        } else if (currentText.length > 0) {
+          setCurrentText(currentText.slice(0, -1))
         } else {
-          if (currentText.length > 0) {
-            setCurrentText(currentText.slice(0, -1))
-          } else {
-            setIsDeleting(false)
-            setCurrentIndex(prev => (prev + 1) % messages.length)
-          }
+          setIsDeleting(false)
+          setCurrentIndex(prev => (prev + 1) % messages.length)
         }
       },
       isDeleting ? 50 : 100
     )
 
     return () => clearTimeout(timeout)
-  }, [currentText, currentIndex, isDeleting, isFocused, hasContent])
+  }, [currentText, currentIndex, isDeleting, isFocused, hasContent, messages])
 
   const handleBlur = (e: FocusEvent<HTMLTextAreaElement>) => {
     registration.onBlur(e)

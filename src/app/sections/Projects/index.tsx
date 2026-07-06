@@ -1,6 +1,7 @@
 'use client'
 
 import { Title } from '@/app/components/Title'
+import { useLanguage } from '@/app/i18n/LanguageProvider'
 import {
   CheckCircle2,
   ChevronRight,
@@ -18,19 +19,20 @@ const totalCommits = projects.reduce((acc, project) => {
 }, 0)
 
 export function Projects() {
+  const { language, t } = useLanguage()
   const [selectedProject, setSelectedProject] = useState<string>('')
 
   const selectedProjectData = projects.find(p => p.id === selectedProject)
 
   const currentYear = new Date().getFullYear()
+  const locale = language === 'pt' ? 'pt-BR' : 'en-US'
 
   return (
     <>
       <Title
         align="center"
-        title="Projects"
-        subtitle="Alguns dos meus projetos mais recentes, desenvolvidos com as tecnologias 
-        mais modernas do mercado."
+        title={t.projects.title}
+        subtitle={t.projects.subtitle}
       />
 
       <div className="flex flex-col lg:flex-row gap-8">
@@ -40,9 +42,9 @@ export function Projects() {
     uppercase tracking-wider border-b border-gray-400 mb-4"
           >
             <div className="w-8" />
-            <div className="flex-1">Nome</div>
-            <div className="w-20 text-center">Status</div>
-            <div className="w-16 text-center">Ano</div>
+            <div className="flex-1">{t.projects.tableName}</div>
+            <div className="w-20 text-center">{t.projects.tableStatus}</div>
+            <div className="w-16 text-center">{t.projects.tableYear}</div>
             <div className="w-8" />
           </div>
 
@@ -89,7 +91,9 @@ export function Projects() {
                   className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm 
                 text-gray-300 pt-3 border-t border-gray-700"
                 >
-                  <span className="font-medium">Ano: {project.year}</span>
+                  <span className="font-medium">
+                    {t.projects.yearLabel}: {project.year}
+                  </span>
 
                   <div className="flex items-center gap-1.5 text-blue">
                     <CheckCircle2 size={14} />
@@ -97,12 +101,14 @@ export function Projects() {
                   </div>
 
                   <span className="col-span-2 text-gray-400">
-                    {project.commits} commits
+                    {project.commits} {t.projects.commitsLabel}
                   </span>
 
                   <div className="flex items-center gap-1.5 col-span-2 text-gray-400">
                     <Code2 size={14} />
-                    <span>{project.technologies.length} techs</span>
+                    <span>
+                      {project.technologies.length} {t.projects.techsLabel}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -124,14 +130,18 @@ export function Projects() {
                   </div>
 
                   <div className="flex items-center gap-3 mt-1 text-xs text-gray-300">
-                    <span>{project.fileSize}</span>
+                    <span>{project.fileSize[language]}</span>
                     <span>•</span>
-                    <span>{project.commits} commits</span>
+                    <span>
+                      {project.commits} {t.projects.commitsLabel}
+                    </span>
                     <span>•</span>
 
                     <div className="flex items-center gap-1">
                       <Code2 size={10} />
-                      <span>{project.technologies.length} techs</span>
+                      <span>
+                        {project.technologies.length} {t.projects.techsLabel}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -153,7 +163,9 @@ export function Projects() {
                 <div className="w-8 flex justify-center">
                   <ChevronRight
                     size={16}
-                    className={`text-gray-300 transition-transform duration-200 ${selectedProject === project.id ? 'rotate-90' : ''}`}
+                    className={`text-gray-300 transition-transform duration-200 ${
+                      selectedProject === project.id ? 'rotate-90' : ''
+                    }`}
                   />
                 </div>
               </div>
@@ -165,11 +177,17 @@ export function Projects() {
               className="flex flex-col items-center gap-1 text-xs text-gray-300 
             sm:flex-row sm:justify-between"
             >
-              <span>{projects.length} projetos</span>
+              <span>
+                {projects.length} {t.projects.projectsCount}
+              </span>
               <span className="hidden sm:inline">•</span>
-              <span>{totalCommits.toLocaleString()} Commits total</span>
+              <span>
+                {totalCommits.toLocaleString(locale)} {t.projects.totalCommits}
+              </span>
               <span className="hidden sm:inline">•</span>
-              <span>Última atualização: {currentYear}</span>
+              <span>
+                {t.projects.lastUpdate}: {currentYear}
+              </span>
             </div>
           </div>
         </div>
@@ -182,9 +200,7 @@ export function Projects() {
               <div className="text-center text-gray-300">
                 <FileText size={32} className="mx-auto mb-2" />
 
-                <p className="text-sm">
-                  Selecione um projeto para ver os detalhes
-                </p>
+                <p className="text-sm">{t.projects.emptyState}</p>
               </div>
             </div>
           )}
