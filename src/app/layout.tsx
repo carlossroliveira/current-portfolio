@@ -20,7 +20,11 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${space_grotesk.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${space_grotesk.variable}`}
+      suppressHydrationWarning
+    >
       <body className="bg-gray-900 antialiased text-gray-100 max-w-[1240px] mx-auto sm:px-14">
         {children}
       </body>

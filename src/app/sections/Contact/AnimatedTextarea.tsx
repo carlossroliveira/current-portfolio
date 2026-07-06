@@ -72,7 +72,7 @@ export const AnimatedTextarea = ({
         name={registration.name}
         ref={registration.ref}
         className="peer w-full bg-gray-900/50 border-2 border-gray-800/50 rounded-xl 
-        text-white outline-none focus:outline-none focus:ring-0 focus:border-gray-800/50 
+        text-gray-100 outline-none focus:outline-none focus:ring-0 focus:border-gray-800/50 
         focus:shadow-none transition-all duration-300 px-4 pt-4 resize-none min-h-[200px]"
         onFocus={() => setIsFocused(true)}
         onBlur={handleBlur}

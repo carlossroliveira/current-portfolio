@@ -38,7 +38,9 @@ export function ContactInfo() {
             >
               <Code2 className="w-6 h-6 text-white" />
             </div>
-            <h2 className="text-2xl font-bold text-white">Entre em Contato</h2>
+            <h2 className="text-2xl font-bold text-gray-100">
+              Entre em Contato
+            </h2>
           </div>
 
           <div className="space-y-6 flex-1">
@@ -63,7 +65,7 @@ export function ContactInfo() {
                   <p className="text-sm text-gray-400 uppercase tracking-wide">
                     Email
                   </p>
-                  <p className="text-white font-medium hover:text-blue transition-colors">
+                  <p className="text-gray-100 font-medium hover:text-blue transition-colors">
                     carlos.sroliveira@hotmail.com
                   </p>
                 </div>
@@ -96,7 +98,7 @@ export function ContactInfo() {
                   <p className="text-sm text-gray-400 uppercase tracking-wide">
                     Celular
                   </p>
-                  <p className="text-white font-medium hover:text-purple transition-colors">
+                  <p className="text-gray-100 font-medium hover:text-purple transition-colors">
                     +55 (71) 9 9256-7831
                   </p>
                 </div>
@@ -117,7 +119,7 @@ export function ContactInfo() {
           >
             <div className="flex items-center gap-2 mb-2">
               <Zap className="w-5 h-5 text-blue" />
-              <h3 className="font-bold text-white">Resposta Rápida</h3>
+              <h3 className="font-bold text-gray-100">Resposta Rápida</h3>
             </div>
             <p className="text-gray-300 text-sm">
               Vou responder em até{' '}

@@ -30,6 +30,7 @@ export function WelcomeSection() {
             <Image
               src={Im}
               alt="Minha imagem"
+              loading="eager"
               className="rounded-lg object-cover"
             />
           </div>
@@ -48,7 +49,12 @@ export function WelcomeSection() {
       </div>
 
       <div className="hidden lg:flex mx-auto justify-center items-start">
-        <Image src={Im} alt="Minha imagem" className="rounded object-cover" />
+        <Image
+          src={Im}
+          alt="Minha imagem"
+          loading="eager"
+          className="rounded object-cover"
+        />
       </div>
     </div>
   )

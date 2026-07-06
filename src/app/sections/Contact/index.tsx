@@ -88,7 +88,7 @@ export function Contact() {
                       aria-invalid={Boolean(errors.name)}
                       {...register('name')}
                       className="peer w-full h-14 bg-gray-900/50 border-2 border-gray-800/50 rounded-xl 
-                      text-white outline-none focus:outline-none focus:ring-0 focus:border-gray-800/50 focus:shadow-none 
+                      text-gray-100 outline-none focus:outline-none focus:ring-0 focus:border-gray-800/50 focus:shadow-none 
                       transition-all duration-300 px-4 pt-6"
                     />
                     <label
@@ -116,7 +116,7 @@ export function Contact() {
                       aria-invalid={Boolean(errors.email)}
                       {...register('email')}
                       className="peer w-full h-14 bg-gray-900/50 border-2 border-gray-800/50 rounded-xl 
-                      text-white outline-none focus:outline-none focus:ring-0 focus:border-gray-800/50 focus:shadow-none 
+                      text-gray-100 outline-none focus:outline-none focus:ring-0 focus:border-gray-800/50 focus:shadow-none 
                       transition-all duration-300 px-4 pt-6"
                     />
 
