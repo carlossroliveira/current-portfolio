@@ -4,26 +4,17 @@ import { Button } from '@/app/components/Button'
 import { Title } from '@/app/components/Title'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Mail, Send, User } from 'lucide-react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 import { AnimatedTextarea } from './AnimatedTextarea'
 import { ContactInfo } from './ContactInfo'
+import { type ContactFormData, contactSchema } from './contact-schema'
 
-const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(3, 'Seu nome precisa ter pelo menos 3 caracteres.'),
-  email: z.string().trim().email('Informe um e-mail valido.'),
-  message: z
-    .string()
-    .trim()
-    .min(10, 'Sua mensagem precisa ter pelo menos 10 caracteres.'),
-})
-
-type ContactFormData = z.infer<typeof contactSchema>
+type SubmitStatus = 'idle' | 'success' | 'error'
 
 export function Contact() {
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
+
   const {
     register,
     handleSubmit,
@@ -38,8 +29,27 @@ export function Contact() {
     },
   })
 
-  const onSubmit = async () => {
-    reset()
+  const onSubmit = async (data: ContactFormData) => {
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        throw new Error('Contact request failed')
+      }
+
+      reset()
+      setSubmitStatus('success')
+    } catch {
+      setSubmitStatus('error')
+    }
   }
 
   return (
@@ -142,11 +152,28 @@ export function Contact() {
 
                 <div className="group flex items-center justify-center gap-3">
                   <Button type="submit" disabled={isSubmitting}>
-                    <span>Enviar Mensagem</span>
+                    <span>
+                      {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                    </span>
                   </Button>
 
                   <Send className="h-5 w-5" />
                 </div>
+
+                {submitStatus !== 'idle' && (
+                  <p
+                    aria-live="polite"
+                    className={`text-center text-sm font-semibold ${
+                      submitStatus === 'success'
+                        ? 'text-emerald'
+                        : 'text-[#ff3b30]'
+                    }`}
+                  >
+                    {submitStatus === 'success'
+                      ? 'Mensagem enviada com sucesso.'
+                      : 'Não foi possível enviar a mensagem. Tente novamente.'}
+                  </p>
+                )}
               </form>
             </div>
           </div>
