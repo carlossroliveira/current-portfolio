@@ -77,7 +77,7 @@ export function Contact() {
             />
 
             <div
-              className="relative max-[374px]:p-0 p-4 md:p-12 rounded-3xl bg-gradient-to-br from-gray-bg-gray-900/80 to-gray-900/80 
+              className="relative max-[374px]:p-0 p-4 md:p-12 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/80 
       backdrop-blur-xl border border-gray-800/50 duration-500 h-full flex flex-col"
             >
               <form

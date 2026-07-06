@@ -16,7 +16,6 @@ type Translation = (typeof translations)[Language]
 
 type LanguageContextValue = {
   language: Language
-  setLanguage: (language: Language) => void
   toggleLanguage: () => void
   t: Translation
 }
@@ -56,11 +55,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const value = useMemo<LanguageContextValue>(
     () => ({
       language,
-      setLanguage,
       toggleLanguage,
       t: translations[language],
     }),
-    [language, setLanguage, toggleLanguage]
+    [language, toggleLanguage]
   )
 
   return (

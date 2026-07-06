@@ -31,7 +31,7 @@ export function ContactInfo() {
   return (
     <div className="lg:col-span-5 space-y-8 flex">
       <div
-        className="relative max-[425px]:w-1.5 max-[374px]:p-0 p-4 rounded-2xl bg-gradient-to-br from-gray-bg-gray-900/80 to-gray-900/80 
+        className="relative max-[425px]:w-1.5 max-[374px]:p-0 p-4 rounded-2xl bg-gradient-to-br from-gray-900/80 to-gray-900/80 
       backdrop-blur-xl border border-gray-800/50 flex-1 flex flex-col"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-blue/5 to-purple/5 rounded-2xl animate-pulse" />
